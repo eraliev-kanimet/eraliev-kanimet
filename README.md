@@ -2,7 +2,7 @@
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=2DAFC4&background=FFFFFF00&center=true&vCenter=true&width=435&lines=Hi%2C+my+name+is+Kanimet;PHP+%26+JavaScript+developer" alt="Typing SVG" /></a>
 </div>
 
-### Visitors: <img align="center" height="30px" src="https://profile-counter.glitch.me/eraliev-kanimet/count.svg" alt="Kanimet visitors"/>
+<p align="center"><img align="center" src="https://profile-counter.glitch.me/eraliev-kanimet/count.svg" alt="Kanimet visitors"/></p>
 
 <img align="center" src="https://github-readme-activity-graph.vercel.app/graph?username=eraliev-kanimet&bg_color=222222&color=ffffff&line=1890ff&point=ffffff&area=true&hide_border=false" alt="Kanimet"/>
 <p align="center">
@@ -14,7 +14,7 @@
 </p>
 </p>
 <div align="center" style="font-size: 25px;font-weight: 900;">
-  <a href="https://github.com/starlitnightsky">
+  <a href="https://github.com/eraliev-kanimet">
     <img src="https://github-readme-streak-stats.herokuapp.com?user=eraliev-kanimet&theme=dark" alt="Kanimet"/>
   </a>
 </div>
