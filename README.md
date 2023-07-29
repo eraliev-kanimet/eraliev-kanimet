@@ -9,7 +9,9 @@
 <img align="center" src="https://github-profile-trophy.vercel.app/?username=eraliev-kanimet&theme=darkhub&no-frame=true&column=4&margin-w=36&margin-h=12" alt="Kanimet"/>
 </p>
 <p align="center">
-<img align="center" height="200px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=eraliev-kanimet&langs_count=6&theme=dark&layout=compact&hide=html,scss,makefile,ruby,css,less" alt="Kanimet"/>
+  <img height="200px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=eraliev-kanimet&langs_count=6&theme=dark&layout=compact&hide=html,scss,makefile,ruby,css,less" alt="Kanimet"/>
+</p>
+<p align="center">
 <img align="center" height="200px" src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=eraliev-kanimet&show_icons=true&count_private=true&include_all_commits=true&line_height=25&theme=dark" alt="Kanimet's Github Stats" />
 </p>
 </p>
