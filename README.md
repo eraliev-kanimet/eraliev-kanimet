@@ -4,16 +4,7 @@
 
 <p align="center"><img align="center" src="https://profile-counter.glitch.me/eraliev-kanimet/count.svg" alt="Kanimet visitors"/></p>
 
-<img align="center" src="https://github-readme-activity-graph.vercel.app/graph?username=eraliev-kanimet&bg_color=222222&color=ffffff&line=1890ff&point=ffffff&area=true&hide_border=false" alt="Kanimet"/>
-<p align="center">
-<img align="center" src="https://github-profile-trophy.vercel.app/?username=eraliev-kanimet&theme=darkhub&no-frame=true&column=4&margin-w=36&margin-h=12" alt="Kanimet"/>
-</p>
 <p align="center">
   <img height="200px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=eraliev-kanimet&langs_count=6&theme=dark&layout=compact&hide=html,scss,makefile,ruby,css,less" alt="Kanimet"/>
 </p>
-<div align="center" style="font-size: 25px;font-weight: 900;">
-  <a href="https://github.com/eraliev-kanimet">
-    <img src="https://github-readme-streak-stats.herokuapp.com?user=eraliev-kanimet&theme=dark" alt="Kanimet"/>
-  </a>
-</div>
 </section>
