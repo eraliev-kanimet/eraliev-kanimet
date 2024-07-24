@@ -7,4 +7,3 @@
 <p align="center">
   <img height="200px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=eraliev-kanimet&langs_count=6&theme=dark&layout=compact&hide=html,scss,makefile,ruby,css,less" alt="Kanimet"/>
 </p>
-</section>
