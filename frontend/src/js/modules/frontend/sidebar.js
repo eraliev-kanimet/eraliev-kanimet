@@ -1,4 +1,3 @@
-
 export default function () {
     const sidebar = document.getElementById('sidebar');
     const openSidebar = document.getElementById('openSidebar')
@@ -13,4 +12,13 @@ export default function () {
         sidebar.classList.remove('left-0')
         sidebar.classList.add('left-[-100%]')
     })
+
+    document
+        .querySelectorAll('button[data-close-block="sidebar"]')
+        .forEach(el => {
+            el.addEventListener('click', () => {
+                sidebar.classList.remove('left-0')
+                sidebar.classList.add('left-[-100%]')
+            })
+        })
 }
