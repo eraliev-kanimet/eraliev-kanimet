@@ -5,14 +5,14 @@
 >
     <div class="max-w-6xl mx-auto flex justify-end p-2 gap-3">
         <nav class="gap-3 hidden sm:flex">
-            <button class="btn-v1">
+            <a href="/" class="btn-v1">
+                <span>На сайт</span>
+            </a>
+            <button x-on:click="setSection('home')" class="btn-v1">
                 <span>Главная</span>
             </button>
-            <button class="btn-v1">
-                <span>На сайт</span>
-            </button>
-            <button class="btn-v1 flex justify-center items-center gap-1.5">
-                <span>Сообщении</span>
+            <button x-on:click="setSection('form')" class="btn-v1 flex justify-center items-center gap-1.5">
+                <span>Формы</span>
                 <!--<span class="py-[3.7px] px-[8px] bg-gray-900 dark:bg-white !text-white dark:!text-gray-900 rounded-full !text-xs inline-flex justify-center items-center"></span>-->
             </button>
         </nav>
@@ -80,14 +80,14 @@
             </button>
         </div>
         <div class="flex flex-col gap-6 pt-16 px-4">
-            <button class="btn-v1">
+            <a href="/" class="btn-v1">
+                <span>На сайт</span>
+            </a>
+            <button x-on:click="setSection('form')" class="btn-v1">
                 <span>Главная</span>
             </button>
-            <button class="btn-v1">
-                <span>На сайт</span>
-            </button>
-            <button class="btn-v1">
-                <span>Сообщении</span>
+            <button x-on:click="setSection('form')" class="btn-v1">
+                <span>Формы</span>
             </button>
         </div>
     </div>

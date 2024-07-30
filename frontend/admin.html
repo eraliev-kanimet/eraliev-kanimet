@@ -9,6 +9,15 @@
 <body x-data="common">
 <div class="wrapper bg-white dark:bg-gray-900">
     {{> admin/header }}
+
+    <main class="px-3">
+        <section x-show="section === 'home'" class="!hidden">
+            {{> admin/section/home }}
+        </section>
+        <section x-show="section === 'form'" class="!hidden">
+            {{> admin/section/form }}
+        </section>
+    </main>
 </div>
 <script type="module" src="src/js/admin.js"></script>
 </body>

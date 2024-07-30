@@ -5,6 +5,11 @@ export default () => ({
         this.theme = tailwindcssApplyTheme(localStorage.getItem('theme') ?? null)
 
         localStorage.setItem('theme', this.theme)
+
+        document.querySelectorAll('main > section')
+            .forEach(el => {
+                el.classList.remove('!hidden')
+            })
     },
 
     theme: '',
@@ -24,4 +29,10 @@ export default () => ({
     setSidebar: function () {
         this.sidebar = !this.sidebar
     },
+
+    section: 'home',
+
+    setSection(section) {
+        this.section = section
+    }
 })

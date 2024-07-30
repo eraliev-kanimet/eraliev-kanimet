@@ -1,0 +1,9 @@
+
+.wrapper {
+  min-height: 100vh;
+  width: 100%;
+
+  & > main > section {
+    @apply mt-14 md:mt-20 max-w-6xl mx-auto;
+  }
+}
