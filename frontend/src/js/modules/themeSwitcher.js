@@ -22,7 +22,11 @@ export default function () {
         }
     }
 
-    hiddenSvg(tailwindcssApplyTheme(localStorage.getItem('theme')))
+    const theme = tailwindcssApplyTheme(localStorage.getItem('theme'))
+
+    hiddenSvg(theme)
+
+    localStorage.setItem('theme', theme)
 
     themeBtn.addEventListener('click', () => {
         setTheme()
