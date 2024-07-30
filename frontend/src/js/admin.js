@@ -1,11 +1,10 @@
 import '../scss/index.scss'
 import '../scss/admin.scss'
 
-import themeSwitcher from "./modules/themeSwitcher.js";
-import ui from "./modules/admin/ui.js";
+import Alpine from "alpinejs";
 
-document.addEventListener('DOMContentLoaded', () => {
-    themeSwitcher()
+import common from "./modules/admin/common.js";
 
-    ui()
-})
+Alpine.data('common', common)
+
+Alpine.start()
