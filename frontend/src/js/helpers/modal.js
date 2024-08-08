@@ -1,7 +1,11 @@
 
 const body = document.querySelector('body');
 
-export const openModal = (modal) => {
+export const openModal = (e, modal) => {
+    if (typeof e === 'object' && e.type === 'click') {
+        e.preventDefault();
+    }
+
     if (typeof modal === 'string') {
         modal = document.querySelector(modal);
     }
@@ -12,7 +16,23 @@ export const openModal = (modal) => {
     body.classList.add('overflow-hidden');
 }
 
-export const closeModal = (modal) => {
+export const openModals = (modal) => {
+    const name = modal.dataset['modal']
+
+    if (name) {
+        document
+            .querySelectorAll(`[data-open-modal="${name}"]`)
+            .forEach(el => el.addEventListener('click', (e) => openModal(e, modal)))
+    } else {
+        console.error('Incorrect function used, check!')
+    }
+}
+
+export const closeModal = (e, modal) => {
+    if (typeof e === 'object' && e.type === 'click') {
+        e.preventDefault();
+    }
+
     if (typeof modal === 'string') {
         modal = document.querySelector(modal);
     }
@@ -21,4 +41,16 @@ export const closeModal = (modal) => {
     modal.classList.remove('flex');
 
     body.classList.remove('overflow-hidden');
+}
+
+export const closeModals = (modal) => {
+    const name = modal.dataset['modal']
+
+    if (name) {
+        document
+            .querySelectorAll(`[data-close-modal="${name}"]`)
+            .forEach(el => el.addEventListener('click', (e) => closeModal(e, modal)))
+    } else {
+        console.error('Incorrect function used, check!')
+    }
 }
