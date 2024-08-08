@@ -1,8 +1,39 @@
 <dialog
         data-modal="form"
         data-close-modal="form"
-        class="hidden justify-center items-center fixed top-0 w-screen h-screen backdrop-filter backdrop-blur-lg"
+        class="dialog hidden justify-center items-center"
 >
-    <form id="form" class="bg-white p-10 border">
+    <form id="form" class="form w-full sm:w-[500px]">
+        <header>
+            <h3>Форма для сообщение</h3>
+        </header>
+        <div>
+            <label for="name">Имя: <span>*</span></label>
+            <input id="name" name="name" type="text">
+            <div data-error="name"></div>
+        </div>
+        <div>
+            <label for="category">Категория: <span>*</span></label>
+            <input id="category" name="category" type="text">
+            <div data-error="category"></div>
+        </div>
+        <div>
+            <label for="telegram">Telegram: <span>*</span></label>
+            <input id="telegram" name="telegram" type="text">
+            <div data-error="telegram"></div>
+        </div>
+        <div>
+            <label for="message">Сообщение: </label>
+            <textarea id="message" name="message" cols="30" rows="10"></textarea>
+            <div data-error="message"></div>
+        </div>
+        <footer>
+            <button data-close-modal="form">
+                <span>Отмена</span>
+            </button>
+            <button>
+                <span>Отправить</span>
+            </button>
+        </footer>
     </form>
 </dialog>

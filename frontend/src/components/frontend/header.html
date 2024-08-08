@@ -12,10 +12,6 @@
             <button class="btn-v1">
                 <span>Записи</span>
             </button>
-
-            <button class="btn-v1" data-open-modal="form">
-                <span>Отправить сообщение</span>
-            </button>
         </nav>
         <button class="btn-v2" id="themeBtn">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -32,7 +28,7 @@
         </button>
     </div>
 
-    <div id="sidebar" class="block sm:hidden fixed left-[-100%] top-0 w-screen h-screen bg-white p-2 transition-all">
+    <div id="sidebar" class="block sm:hidden fixed left-[-100%] top-0 w-screen h-screen bg-white dark:bg-gray-900 p-2 transition-all">
         <div class="flex justify-end">
             <button class="btn-v2 mr-0 ml-auto" id="closeSidebar">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -41,17 +37,14 @@
             </button>
         </div>
         <div class="flex flex-col gap-6 pt-16 px-4">
-            <button class="btn-v1">
+            <button class="btn-v1" data-close-block="sidebar">
                 <span>Главная</span>
             </button>
-            <button class="btn-v1">
+            <button class="btn-v1" data-close-block="sidebar">
                 <span>Вопросы и Ответы</span>
             </button>
-            <button class="btn-v1">
+            <button class="btn-v1" data-close-block="sidebar">
                 <span>Записи</span>
-            </button>
-            <button class="btn-v1" data-open-modal="form" data-close-block="sidebar">
-                <span>Отправить сообщение</span>
             </button>
         </div>
     </div>
