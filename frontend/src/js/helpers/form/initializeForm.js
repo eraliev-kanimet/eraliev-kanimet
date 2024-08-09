@@ -43,8 +43,20 @@ export default function (form, schema) {
         return Object.values(errors).filter(item => !item.length).length;
     }
 
+    function reset() {
+        for (const key in data) {
+            data[key].value = ''
+
+            data[key].classList.remove('is-valid');
+            data[key].classList.remove('is-invalid');
+
+            formErrors[key].innerHTML = ''
+        }
+    }
+
     return {
         data,
         validate: _validate,
+        reset,
     };
 }

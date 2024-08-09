@@ -38,6 +38,13 @@ export default function () {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        service.submit();
+        service.submit();   
     });
+
+    form.querySelector('[data-close-modal]')
+        ?.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            service.reset();
+        });
 }

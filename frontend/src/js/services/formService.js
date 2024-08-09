@@ -1,7 +1,7 @@
 import initializeForm from "../helpers/form/initializeForm.js";
 
 export default function (form, schema) {
-    const {data, validate} = initializeForm(form, schema);
+    const {data, validate, reset} = initializeForm(form, schema);
 
     function submit() {
         if (validate()) {
@@ -18,5 +18,6 @@ export default function (form, schema) {
     return {
         data,
         submit,
+        reset,
     }
 }
