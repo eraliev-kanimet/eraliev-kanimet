@@ -36,6 +36,14 @@
     max-height: 200px;
 
     @apply px-3 py-2 mt-1 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600;
+
+    &.is-valid {
+      @apply text-green-400 dark:text-green-400 border-green-600 dark:border-green-600;
+    }
+
+    &.is-invalid {
+      @apply text-red-400 dark:text-red-400 border-red-600 dark:border-red-600;
+    }
   }
 
   header {
@@ -63,8 +71,12 @@
   [data-error] {
     @apply text-red-600 text-sm;
 
+    div:first-child {
+      @apply mt-1.5;
+    }
+
     div:not(div:last-child) {
-      margin-top: 0.375rem;
+      @apply mb-1.5;
     }
   }
 }
