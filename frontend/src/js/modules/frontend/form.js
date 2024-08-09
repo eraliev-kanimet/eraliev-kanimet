@@ -17,15 +17,22 @@ export default function () {
     formModal(form);
 
     const service = formService(form, {
-        name: '',
-        category: '',
-        telegram: '',
-        message: '',
-    }, {
-        name: ['required', 'string'],
-        category: ['required', 'string'],
-        telegram: ['required', 'string'],
-        message: ['required', 'max:255'],
+        name: {
+            mode: 'input',
+            rules: ['required', 'max:255'],
+        },
+        category: {
+            mode: 'input',
+            rules: ['required', 'max:255'],
+        },
+        telegram: {
+            mode: 'input',
+            rules: ['required', 'max:255'],
+        },
+        message: {
+            mode: 'input',
+            rules: ['required', 'max:1024'],
+        },
     });
 
     form.addEventListener('submit', (e) => {
