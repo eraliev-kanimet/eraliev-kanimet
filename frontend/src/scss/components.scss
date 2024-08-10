@@ -1,8 +1,70 @@
+.btn {
+  position: relative;
+}
+
+.btn:before {
+  content: '';
+  animation-duration: 0.75s;
+  animation-iteration-count: infinite;
+  animation-name: rotate-forever;
+  animation-timing-function: linear;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: -7px;
+  margin-left: -7px;
+  height: 15px;
+  width: 15px;
+  border: 3px solid #ffffff;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+.btn.is-loading {
+  cursor: default;
+}
+
+.btn.is-loading:before {
+  opacity: 1;
+}
+
+.btn.is-loading span {
+  opacity: 0;
+}
+
+
+@keyframes rotate-forever {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 
 .btn-v1 {
+  @extend .btn;
+
   cursor: pointer;
 
-  @apply px-4 py-2.5 text-sm shadow hover:shadow-none hover:border-gray-200 rounded-md transition-all duration-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700;
+  @apply px-4 py-2.5 text-sm shadow rounded-md transition-all duration-300 bg-gray-100 dark:bg-gray-800;
+
+  &:not(.is-loading):hover {
+    @apply shadow-none border-gray-200 bg-gray-200 dark:bg-gray-700;
+  }
 
   & > * {
     @apply text-sm text-gray-600 dark:text-white;
@@ -29,7 +91,7 @@
     }
   }
 
-  input, textarea {
+  input, textarea, [data-select] {
     display: block;
     width: 100%;
     outline: none;
@@ -37,12 +99,70 @@
 
     @apply px-3 py-2 mt-1 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600;
 
-    &.is-valid {
-      @apply text-green-400 dark:text-green-400 border-green-600 dark:border-green-600;
+    &:not([data-select]).is-valid {
+      @apply border-green-600 dark:border-green-600;
     }
 
-    &.is-invalid {
-      @apply text-red-400 dark:text-red-400 border-red-600 dark:border-red-600;
+    &:not([data-select]).is-invalid {
+      @apply border-red-600 dark:border-red-600;
+    }
+
+    &:not(select, [data-select]).is-invalid {
+      @apply text-red-400 dark:text-red-400;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
+      -webkit-text-fill-color: rgb(55 65 81) !important;
+    }
+
+    html.dark &:-webkit-autofill,
+    html.dark &:-webkit-autofill:hover,
+    html.dark &:-webkit-autofill:focus,
+    html.dark &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px rgb(31 41 55) inset !important;
+      -webkit-text-fill-color: rgb(209 213 219) !important;
+    }
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  [data-select] {
+    cursor: pointer;
+    position: relative;
+
+    @apply py-2.5 text-sm;
+
+    ul {
+      z-index: 10;
+      position: absolute;
+      top: 115%;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.1s ease;
+
+      &.visible {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      @apply w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-md;
+
+      li {
+        cursor: pointer;
+
+        @apply px-3 py-2 dark:bg-gray-800 rounded-md;
+
+        &:hover {
+          @apply bg-gray-100 dark:bg-gray-700;
+        }
+      }
     }
   }
 
