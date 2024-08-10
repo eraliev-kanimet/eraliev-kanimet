@@ -11,7 +11,7 @@ export function validate(value, rules) {
                 }
                 break;
             case 'number':
-                if (typeof value !== 'number') {
+                if (value.length !== String(parseInt(value)).length) {
                     errors.push('Значение должно быть номером.');
                 }
                 break;

@@ -22,7 +22,11 @@ export const openModals = (modal) => {
     if (name) {
         document
             .querySelectorAll(`[data-open-modal="${name}"]`)
-            .forEach(el => el.addEventListener('click', (e) => openModal(e, modal)))
+            .forEach(el => {
+                el.addEventListener('click', e => {
+                    openModal(e, modal);
+                });
+            })
     } else {
         console.error('Incorrect function used, check!')
     }
@@ -49,7 +53,11 @@ export const closeModals = (modal) => {
     if (name) {
         document
             .querySelectorAll(`[data-close-modal="${name}"]`)
-            .forEach(el => el.addEventListener('click', (e) => closeModal(e, modal)))
+            .forEach(el => {
+                el.addEventListener('click', e => {
+                    closeModal(e, modal);
+                });
+            })
     } else {
         console.error('Incorrect function used, check!')
     }
