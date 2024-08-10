@@ -10,11 +10,10 @@ import string from '../validators/string.js';
 const router = Router();
 
 router.post('', [
-    integer.requiredInArray('Тип', 'type', [1, 2, 3, 4, 5]),
     string.requiredMax('Имя', 'name'),
-    string.requiredMax('Категория', 'category'),
+    integer.requiredInArray('Категория', 'category', [0, 1, 2, 3, 4, 5]),
     string.requiredMax('Telegram', 'telegram'),
-    string.requiredMax('Сообщение', 'message', 200),
+    string.requiredMax('Сообщение', 'message', 1024),
     validationMiddleware,
 ], formController.store);
 

@@ -1,12 +1,12 @@
 import Form from '../models/form.js';
 
 const store = async (req, res) => {
-    const {type, name, category, telegram, message} = req.body;
+    const {name, category, telegram, message} = req.body;
 
     await Form.create({
-        type: type,
+        type: category,
         status: 0,
-        data: {name, category, telegram, message},
+        data: {name, telegram, message},
     });
 
     res.json({message: `Сообщение от ${name}: отправлено успешно!`});
