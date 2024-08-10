@@ -46,5 +46,11 @@ export default function () {
             mode: 'live',
             rules: ['max:1024'],
         },
+    }, {
+        modifyRequest(request) {
+            request.category = parseInt(request.category)
+
+            return request;
+        }
     });
 }
