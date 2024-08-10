@@ -13,7 +13,7 @@
         </div>
         <div>
             <label for="category">Категория: <span>*</span></label>
-            <input id="category" name="category" type="text">
+            <div id="category" data-select="category"></div>
             <div data-error="category"></div>
         </div>
         <div>
@@ -27,10 +27,10 @@
             <div data-error="message"></div>
         </div>
         <footer>
-            <button data-close-modal="form">
+            <button data-close-modal="form" data-reset>
                 <span>Отмена</span>
             </button>
-            <button>
+            <button type="submit">
                 <span>Отправить</span>
             </button>
         </footer>

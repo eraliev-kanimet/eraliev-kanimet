@@ -2,10 +2,8 @@ import formService from "../../services/formService.js";
 
 import {closeModals, openModals} from "../../helpers/modal.js";
 
-const formModal = (form) => {
+const formModal = () => {
     const modal = document.querySelector('dialog[data-modal="form"]');
-
-    form.addEventListener('click', (e) => e.stopPropagation());
 
     openModals(modal);
     closeModals(modal);
@@ -14,37 +12,39 @@ const formModal = (form) => {
 export default function () {
     const form = document.getElementById('form');
 
-    formModal(form);
+    formModal();
 
-    const service = formService(form, {
+    formService(form, {
         name: {
-            mode: 'input',
+            tag: 'input',
+            mode: 'live',
             rules: ['required', 'max:255'],
         },
         category: {
-            mode: 'input',
-            rules: ['required', 'max:255'],
+            tag: 'select-v2',
+            options: {
+                placeholder: 'Выберите категорию',
+                items: {
+                    'Консультация': 1,
+                    'Партнерство': 2,
+                    'Жалобы': 3,
+                    'Предложение': 4,
+                    'Сообщить об ошибке': 5,
+                    'Другое': 0,
+                },
+            },
+            mode: 'live',
+            rules: ['required'],
         },
         telegram: {
-            mode: 'input',
+            tag: 'input',
+            mode: 'live',
             rules: ['required', 'max:255'],
         },
         message: {
-            mode: 'input',
-            rules: ['required', 'max:1024'],
+            tag: 'textarea',
+            mode: 'live',
+            rules: ['max:1024'],
         },
     });
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        service.submit();   
-    });
-
-    form.querySelector('[data-close-modal]')
-        ?.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            service.reset();
-        });
 }

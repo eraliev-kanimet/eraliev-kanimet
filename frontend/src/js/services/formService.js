@@ -1,9 +1,11 @@
 import initializeForm from "../helpers/form/initializeForm.js";
 
 export default function (form, schema) {
-    const {data, validate, reset} = initializeForm(form, schema);
+    const {data, btn, validate, reset} = initializeForm(form, schema);
 
-    function submit() {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+
         if (validate()) {
             const request = {}
 
@@ -13,11 +15,12 @@ export default function (form, schema) {
 
             console.log(request)
         }
-    }
+    });
 
-    return {
-        data,
-        submit,
-        reset,
-    }
+    form.querySelector('[data-reset]')
+        ?.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            reset();
+        });
 }
