@@ -4,8 +4,8 @@ import formController from '../controllers/formController.js'
 
 import validationMiddleware from '../middleware/validationMiddleware.js';
 
-import integer from '../validators/integer.js';
-import string from '../validators/string.js';
+import integer from '../validators/label/integer.js';
+import string from '../validators/label/string.js';
 
 const router = Router();
 
