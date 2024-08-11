@@ -37,7 +37,6 @@
   opacity: 0;
 }
 
-
 @keyframes rotate-forever {
   0% {
     -webkit-transform: rotate(0deg);
@@ -182,12 +181,6 @@
     @extend .btn-v1;
   }
 
-  small {
-    display: block;
-
-    @apply text-red-600 mt-1;
-  }
-
   [data-error] {
     @apply text-red-600 text-sm;
 
@@ -198,5 +191,9 @@
     div:not(div:last-child) {
       @apply mb-1.5;
     }
+  }
+
+  .success-text {
+    @apply hidden text-center leading-tight border border-green-800 rounded-md p-5 bg-green-100 text-green-900;
   }
 }

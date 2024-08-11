@@ -34,10 +34,10 @@ export default function (form, schema) {
         if (error) {
             formErrors[key] = error;
 
-            if (schema[key].tag !== 'select-v2') {
-                if (schema[key]?.rules && schema[key].rules.length) {
-                    rules[key] = schema[key].rules;
+            if (schema[key]?.rules && schema[key].rules.length) {
+                rules[key] = schema[key].rules;
 
+                if (schema[key].tag !== 'select-v2') {
                     if (schema[key].mode === 'live') {
                         const event = data[key].tagName === 'SELECT' ? 'change' : 'input';
 
@@ -77,10 +77,35 @@ export default function (form, schema) {
         }
     }
 
+    let successTimeout = null
+
+    function success() {
+        Array.from(form.children).forEach(el => {
+            if (el.classList.contains('success-text')) {
+                el.classList.toggle('!block')
+            } else {
+                el.classList.toggle('!hidden')
+            }
+        })
+    }
+
     return {
         data,
         btn,
         validate: _validate,
         reset,
+        success: (callback) => {
+            clearTimeout(successTimeout);
+
+            success();
+
+            successTimeout = setTimeout(() => {
+                success();
+
+                if (callback) {
+                    callback();
+                }
+            }, 5000);
+        },
     };
 }
