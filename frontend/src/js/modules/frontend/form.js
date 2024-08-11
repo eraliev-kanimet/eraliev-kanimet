@@ -1,20 +1,22 @@
 import formService from "../../services/formService.js";
 
-import {closeModals, openModals} from "../../helpers/modal.js";
+import {closeModal, closeModals, openModals} from "../../helpers/modal.js";
 
 const formModal = () => {
     const modal = document.querySelector('dialog[data-modal="form"]');
 
     openModals(modal);
     closeModals(modal);
+
+    return modal;
 }
 
 export default function () {
     const form = document.getElementById('form');
 
-    formModal();
+    const modal = formModal();
 
-    formService(form, {
+    formService({
         name: {
             tag: 'input',
             mode: 'live',
@@ -44,13 +46,20 @@ export default function () {
         message: {
             tag: 'textarea',
             mode: 'live',
-            rules: ['max:1024'],
+            rules: ['required', 'max:1024'],
         },
     }, {
-        modifyRequest(request) {
-            request.category = parseInt(request.category)
+        url: '/api/forms',
+        form: form,
+        hooks: {
+            modifyRequest(request) {
+                request.category = parseInt(request.category)
 
-            return request;
-        }
+                return request;
+            },
+            success() {
+                closeModal('', modal)
+            }
+        },
     });
 }

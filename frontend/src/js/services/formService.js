@@ -1,12 +1,19 @@
 import initializeForm from "../helpers/form/initializeForm.js";
+import {post} from "../helpers/api.js";
 
-export default function (form, schema, hooks = {}) {
-    const {data, btn, validate, reset} = initializeForm(form, schema);
+export default function (schema, options = {hooks: {}}) {
+    const url = options.url
+    const form = options.form
+    const hooks = options?.hooks ?? {}
 
-    btn.addEventListener('click', (e) => {
+    const {data, btn, validate, reset, success} = initializeForm(form, schema);
+
+    btn.addEventListener('click', async (e) => {
         e.preventDefault();
 
         if (validate()) {
+            btn.classList.add('is-loading');
+
             let request = {};
 
             for (const key in data) {
@@ -17,7 +24,18 @@ export default function (form, schema, hooks = {}) {
                 request = hooks.modifyRequest(request)
             }
 
-            console.log(request)
+            await post(url, request)
+                .then(() => {
+                    reset();
+
+                    success(hooks?.success);
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+                .finally(() => {
+                    btn.classList.remove('is-loading');
+                });
         }
     });
 
