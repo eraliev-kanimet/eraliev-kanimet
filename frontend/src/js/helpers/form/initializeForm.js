@@ -5,6 +5,7 @@ import selectV2 from "../../components/select-v2.js";
 
 export default function (form, schema) {
     const data = {};
+    const dataV2 = {};
     const rules = {};
     const formErrors = {};
 
@@ -52,7 +53,11 @@ export default function (form, schema) {
         }
 
         if (schema[key].tag === 'select-v2') {
-            selectV2(data[key], error, {mode: schema[key].mode, rules: schema[key].rules, ...schema[key].options})
+            dataV2[key] = selectV2(data[key], error, {
+                mode: schema[key].mode,
+                rules: schema[key].rules,
+                ...schema[key].options
+            })
         }
     }
 
@@ -68,12 +73,16 @@ export default function (form, schema) {
 
     function reset() {
         for (const key in data) {
-            data[key].value = ''
+            if (key in dataV2) {
+                dataV2[key].reset()
+            } else {
+                data[key].value = ''
 
-            data[key].classList.remove('is-valid');
-            data[key].classList.remove('is-invalid');
+                data[key].classList.remove('is-valid');
+                data[key].classList.remove('is-invalid');
 
-            formErrors[key].innerHTML = ''
+                formErrors[key].innerHTML = ''
+            }
         }
     }
 

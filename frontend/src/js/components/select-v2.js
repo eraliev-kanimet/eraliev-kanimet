@@ -49,4 +49,12 @@ export default function (element, error, options = {}) {
             ul.classList.remove('visible');
         }
     });
+
+    return {
+        reset() {
+            element.value = defaultOptions.default;
+
+            div.textContent = defaultOptions.placeholder;
+        }
+    }
 }
